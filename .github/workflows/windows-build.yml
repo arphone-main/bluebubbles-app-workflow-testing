@@ -55,4 +55,4 @@ jobs:
       - name: Upload Artifacts
         uses: softprops/action-gh-release@v0.1.14
         with: 
-          files: bluebubbles-linux-x64.zip
+          files: bluebubbles-windows-x64.zip
