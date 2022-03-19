@@ -32,15 +32,14 @@ jobs:
           libappindicator3-1 \
           libappindicator3-dev \
           libnotify-dev
-      
+
       - name: Comment Out ContentCommit issues
         run: |
           # Find `onContentCommitted` in blue_bubbles_text_field.dart
           # and insert `//` at the beginning of the line to comment it out.
-          sed -i -e 's|^.*onContentCommitted.*|// &|' ./lib/layouts/conversation_view/text_field/blue_bubbles_text_field.dart # FIXME - put // at beginning of line
+          sed -i -e 's|^.*onContentCommitted.*|// &|' ./lib/layouts/conversation_view/text_field/blue_bubbles_text_field.dart
           # The same thing in custom_cupertino_text_field.dart
-          sed -i -e 's|^.*onContentCommitted.*|// &|' ./lib/layouts/widgets/custom_cupertino_text_field.dart # FIXME put // at beginning of line
-
+          sed -i -e 's|^.*onContentCommitted.*|// &|' ./lib/layouts/widgets/custom_cupertino_text_field.dart
 
           # Find `final ValueChanged<CommittedContent>? onContentCommitted` in custom_cupertino_text_field.dart
           # and insert `//` before it to comment it out.
@@ -57,14 +56,14 @@ jobs:
         run: |
           flutter config --enable-linux-desktop
           flutter build linux
-      
+
       - name: Zip binaries
         uses: papeloto/action-zip@v1
         with:
           files: build/linux/x64/release/bundle
           dest: bluebubbles-linux-x64.zip
           recursive: false
-          
+
       - name: Upload Artifacts
         uses: softprops/action-gh-release@v0.1.14
         with: 
