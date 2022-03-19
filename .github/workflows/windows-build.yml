@@ -48,7 +48,7 @@ jobs:
       - name: Zip binaries
         uses: papeloto/action-zip@v1
         with:
-          files: build\windows\x64\release\
+          files: build\windows\runner\Release\
           dest: bluebubbles-windows-x64.zip
           recursive: false
           
