@@ -45,10 +45,14 @@ jobs:
         run: |
           flutter build windows
       
+      - name: Create EXE Installer
+        # TODO - Download Inno Setup
+        # TODO - Run inno setup, passing it /build-system/windows/exe-installer.iss
+      
       - name: Zip binaries
         uses: papeloto/action-zip@v1
         with:
-          files: build\windows\runner\Release\
+          files: build\windows\runner\Release\ dist\bluebubbles_installer_windows_x64.exe
           dest: bluebubbles-windows-x64.zip
           recursive: false
           
